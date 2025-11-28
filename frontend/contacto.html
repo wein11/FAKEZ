@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - FAKEZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">FAKEZ</a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="index.html#beats" class="nav-link">Beats</a></li>
+                <li class="nav-item"><a href="licencias.html" class="nav-link">Licencias</a></li>
+                <li class="nav-item"><a href="custom-beats.html" class="nav-link">Custom Beats</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre FAKEZ</a></li>
+                <li class="nav-item"><a href="testimonios.html" class="nav-link">Testimonios</a></li>
+                <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-title"><span>Contacto</span></div>
+            <div class="form-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-method">WhatsApp o Email</label>
+                        <input type="text" id="contact-method" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <select id="subject" class="form-control">
+                            <option value="Compra de Beat">Compra de Beat</option>
+                            <option value="Custom Beat">Custom Beat</option>
+                            <option value="Licencias">Duda sobre Licencias</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@faak3z" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/5eG8nZA97LubnzPVamFFAp" target="_blank"><i
+                    class="fab fa-spotify"></i></a>
+            <a href="https://www.tiktok.com/@prodbyfakez" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/facubeldi_" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="licencias.html">Licencias</a>
+            <a href="custom-beats.html">Custom Beats</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 FAKEZ. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="js/ui.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact-method').value;
+            const subject = document.getElementById('subject').value;
+            const msgContent = document.getElementById('message').value;
+
+            const message = `Hola FAKEZ, contacto desde la web.%0A%0A` +
+                `*Nombre:* ${name}%0A` +
+                `*Contacto:* ${contact}%0A` +
+                `*Asunto:* ${subject}%0A` +
+                `*Mensaje:* ${msgContent}`;
+
+            const phoneNumber = "5491100000000";
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Beats - FAKEZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">FAKEZ</a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="index.html#beats" class="nav-link">Beats</a></li>
+                <li class="nav-item"><a href="licencias.html" class="nav-link">Licencias</a></li>
+                <li class="nav-item"><a href="custom-beats.html" class="nav-link">Custom Beats</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre FAKEZ</a></li>
+                <li class="nav-item"><a href="testimonios.html" class="nav-link">Testimonios</a></li>
+                <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-title"><span>Beats a Medida</span></div>
+            <div class="form-container">
+                <form id="custom-beat-form">
+                    <div class="form-group">
+                        <label for="artistName">Nombre Artístico</label>
+                        <input type="text" id="artistName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">WhatsApp o Email</label>
+                        <input type="text" id="contact" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="style">Estilo Buscado</label>
+                        <select id="style" class="form-control">
+                            <option value="Trap">Trap</option>
+                            <option value="Drill">Drill</option>
+                            <option value="Reggaeton">Reggaetón</option>
+                            <option value="R&B">R&B</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="references">Links de Referencia</label>
+                        <textarea id="references" class="form-control" placeholder="Pegá aquí los links..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Presupuesto Estimado</label>
+                        <input type="text" id="budget" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline Deseado</label>
+                        <input type="text" id="deadline" class="form-control">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Consulta por WhatsApp</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@faak3z" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/5eG8nZA97LubnzPVamFFAp" target="_blank"><i
+                    class="fab fa-spotify"></i></a>
+            <a href="https://www.tiktok.com/@prodbyfakez" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/facubeldi_" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="licencias.html">Licencias</a>
+            <a href="custom-beats.html">Custom Beats</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 FAKEZ. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="js/ui.js"></script>
+    <script>
+        document.getElementById('custom-beat-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const artistName = document.getElementById('artistName').value;
+            const contact = document.getElementById('contact').value;
+            const style = document.getElementById('style').value;
+            const references = document.getElementById('references').value;
+            const budget = document.getElementById('budget').value;
+            const deadline = document.getElementById('deadline').value;
+
+            const message = `Hola FAKEZ, me interesa un Custom Beat.%0A%0A` +
+                `*Artista:* ${artistName}%0A` +
+                `*Contacto:* ${contact}%0A` +
+                `*Estilo:* ${style}%0A` +
+                `*Referencias:* ${references}%0A` +
+                `*Presupuesto:* ${budget}%0A` +
+                `*Deadline:* ${deadline}`;
+
+            const phoneNumber = "5491100000000";
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+
+</html>

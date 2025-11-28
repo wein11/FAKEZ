@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKEZ – Beats y producción musical</title>
+    <meta name="description"
+        content="Productor musical Buenos Aires, Argentina. Beats de Trap, Drill, Reggaetón y producción a medida.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+
+    <header>
+        <a href="index.html" class="logo">FAKEZ</a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="index.html#beats" class="nav-link">Beats</a></li>
+                <li class="nav-item"><a href="licencias.html" class="nav-link">Licencias</a></li>
+                <li class="nav-item"><a href="custom-beats.html" class="nav-link">Custom Beats</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link">Sobre FAKEZ</a></li>
+                <li class="nav-item"><a href="testimonios.html" class="nav-link">Testimonios</a></li>
+                <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>FAKEZ<br><span>Beats y Producción Musical</span></h1>
+            <p>Desde Buenos Aires para el mundo. Trap, R&B, Urbano y Clásico. Conectando a través de la música.</p>
+            <div class="hero-btns">
+                <a href="#beats" class="btn">Escuchar Beats</a>
+                <a href="custom-beats.html" class="btn btn-secondary">Custom Beat</a>
+            </div>
+        </section>
+
+        <!-- Player Placeholder -->
+        <section id="player-section">
+            <div
+                style="background: #111; padding: 2rem; text-align: center; border: 1px dashed #333; border-radius: 10px;">
+                <p style="color: #666;">[Aquí iría el iframe del reproductor de BeatStars o similar]</p>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section id="beats">
+            <div class="section-title"><span>Catálogo de Beats</span></div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="Trap">Trap</button>
+                <button class="filter-btn" data-filter="Drill">Drill</button>
+                <button class="filter-btn" data-filter="Reggaeton">Reggaetón</button>
+                <button class="filter-btn" data-filter="LoFi">LoFi</button>
+            </div>
+
+            <div class="beats-grid" id="beats-container">
+                <div class="loading" style="text-align: center; width: 100%; grid-column: 1/-1;">Cargando beats...</div>
+            </div>
+        </section>
+
+        <!-- Packs Section -->
+        <section id="packs">
+            <div class="section-title"><span>Packs & Bundles</span></div>
+            <div class="beats-grid">
+                <div class="beat-card">
+                    <div class="beat-cover" style="background-color: #330033;"></div>
+                    <div class="beat-info">
+                        <div class="beat-title">Dark Trap Pack</div>
+                        <div class="beat-meta">5 Beats - Wav + Stems</div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center;">Ver Pack</a>
+                    </div>
+                </div>
+                <div class="beat-card">
+                    <div class="beat-cover" style="background-color: #003333;"></div>
+                    <div class="beat-info">
+                        <div class="beat-title">Reggaetón Melódico</div>
+                        <div class="beat-meta">3 Beats - Wav + Stems</div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center;">Ver Pack</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof -->
+        <section id="social-proof">
+            <div class="section-title"><span>Últimos Lanzamientos</span></div>
+            <div class="beats-grid">
+                <div class="beat-card">
+                    <div class="beat-info">
+                        <div class="beat-title">Artista X - "Nombre Tema"</div>
+                        <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 1rem;">Prod. by FAKEZ</p>
+                        <a href="#" class="btn btn-secondary" style="font-size: 0.8rem;">Escuchar en Spotify</a>
+                    </div>
+                </div>
+                <div class="beat-card">
+                    <div class="beat-info">
+                        <div class="beat-title">Artista Y - "Nombre Tema"</div>
+                        <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 1rem;">Prod. by FAKEZ</p>
+                        <a href="#" class="btn btn-secondary" style="font-size: 0.8rem;">Escuchar en YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA WhatsApp -->
+        <section style="text-align: center; background: var(--accent-color); margin-top: 4rem; border-radius: 10px;">
+            <h2>¿Querés hablar directo con FAKEZ?</h2>
+            <p style="margin: 1rem 0;">Consultas rápidas, dudas sobre licencias o colaboraciones.</p>
+            <a href="https://wa.me/5491100000000?text=Hola%20FAKEZ%2C%20quiero%20consultar%20por%20un%20beat."
+                target="_blank" class="btn"><i class="fab fa-whatsapp"></i> Enviar Mensaje</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@faak3z" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/5eG8nZA97LubnzPVamFFAp" target="_blank"><i
+                    class="fab fa-spotify"></i></a>
+            <a href="https://www.tiktok.com/@prodbyfakez" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/facubeldi_" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="licencias.html">Licencias</a>
+            <a href="custom-beats.html">Custom Beats</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 FAKEZ. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/3d-background.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/beats.js"></script>
+</body>
+
+</html>

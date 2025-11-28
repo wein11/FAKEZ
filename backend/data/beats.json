@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "title": "Neon Nights",
+        "type": "Trap Melódico Type Beat",
+        "bpm": 140,
+        "key": "Cm",
+        "category": "Trap",
+        "price": 29.99,
+        "coverUrl": "assets/cover1.jpg",
+        "audioUrl": "#"
+    },
+    {
+        "id": "2",
+        "title": "Buenos Aires Drill",
+        "type": "Drill Type Beat",
+        "bpm": 142,
+        "key": "Gm",
+        "category": "Drill",
+        "price": 34.99,
+        "coverUrl": "assets/cover2.jpg",
+        "audioUrl": "#"
+    },
+    {
+        "id": "3",
+        "title": "Sad Vibes",
+        "type": "Sad Trap Type Beat",
+        "bpm": 130,
+        "key": "Am",
+        "category": "Trap",
+        "price": 29.99,
+        "coverUrl": "assets/cover3.jpg",
+        "audioUrl": "#"
+    },
+    {
+        "id": "4",
+        "title": "Reggaeton Duro",
+        "type": "Reggaeton Type Beat",
+        "bpm": 90,
+        "key": "Bm",
+        "category": "Reggaeton",
+        "price": 24.99,
+        "coverUrl": "assets/cover4.jpg",
+        "audioUrl": "#"
+    },
+    {
+        "id": "5",
+        "title": "Chill LoFi",
+        "type": "LoFi Hip Hop Beat",
+        "bpm": 85,
+        "key": "Cmaj",
+        "category": "LoFi",
+        "price": 19.99,
+        "coverUrl": "assets/cover5.jpg",
+        "audioUrl": "#"
+    }
+]
