@@ -1,4 +1,4 @@
-// 3D Background with Three.js - Headphones and Musical Notes
+// 3D Background with Three.js - MIDI Keyboard and Musical Notes
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,66 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
-    // Create Headphones Group
-    const headphones = new THREE.Group();
+    // Create MIDI Keyboard using image texture
+    const textureLoader = new THREE.TextureLoader();
+    const midiKeyboard = new THREE.Group();
 
-    // Material for headphones - Wireframe for tech/audio vibe
-    const headphoneMaterial = new THREE.MeshBasicMaterial({
-        color: 0x00F0FF, // Primary Cyan
-        wireframe: true,
-        transparent: true,
-        opacity: 0.2
+    textureLoader.load('assets/midi-keyboard.png', function (texture) {
+        // Create plane geometry for the MIDI keyboard
+        const geometry = new THREE.PlaneGeometry(20, 12);
+
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0.8,
+            side: THREE.DoubleSide
+        });
+
+        const keyboardMesh = new THREE.Mesh(geometry, material);
+        midiKeyboard.add(keyboardMesh);
+
+        // Add a subtle glow effect with a slightly larger plane behind
+        const glowGeometry = new THREE.PlaneGeometry(21, 13);
+        const glowMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00F0FF,
+            transparent: true,
+            opacity: 0.1,
+            side: THREE.DoubleSide
+        });
+        const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
+        glowMesh.position.z = -0.5;
+        midiKeyboard.add(glowMesh);
     });
 
-    // Left ear cup (torus)
-    const earCupGeometry = new THREE.TorusGeometry(3, 1, 16, 50);
-    const leftEarCup = new THREE.Mesh(earCupGeometry, headphoneMaterial);
-    leftEarCup.position.x = -5;
-    leftEarCup.rotation.y = Math.PI / 2;
-    headphones.add(leftEarCup);
-
-    // Right ear cup (torus)
-    const rightEarCup = new THREE.Mesh(earCupGeometry, headphoneMaterial);
-    rightEarCup.position.x = 5;
-    rightEarCup.rotation.y = Math.PI / 2;
-    headphones.add(rightEarCup);
-
-    // Headband - curved using multiple cylinders
-    const headbandMaterial = new THREE.MeshBasicMaterial({
-        color: 0x00F0FF,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.2
-    });
-
-    // Create curved headband using multiple segments
-    const segments = 20;
-    const radius = 7;
-    for (let i = 0; i < segments; i++) {
-        const angle = (Math.PI * i) / segments;
-        const segmentGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1, 8);
-        const segment = new THREE.Mesh(segmentGeometry, headbandMaterial);
-
-        segment.position.x = Math.cos(angle + Math.PI) * radius;
-        segment.position.y = Math.sin(angle + Math.PI) * radius + 3;
-        segment.rotation.z = -angle;
-
-        headphones.add(segment);
-    }
-
-    // Add connecting arms
-    const armGeometry = new THREE.CylinderGeometry(0.3, 0.3, 5, 8);
-    const leftArm = new THREE.Mesh(armGeometry, headbandMaterial);
-    leftArm.position.set(-5, 2, 0);
-    leftArm.rotation.z = Math.PI / 6;
-    headphones.add(leftArm);
-
-    const rightArm = new THREE.Mesh(armGeometry, headbandMaterial);
-    rightArm.position.set(5, 2, 0);
-    rightArm.rotation.z = -Math.PI / 6;
-    headphones.add(rightArm);
-
-    scene.add(headphones);
+    scene.add(midiKeyboard);
 
     // Create Musical Note Particles
     function createNoteTexture(noteSymbol) {
@@ -153,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function onDocumentScroll() {
         const scrollY = window.scrollY;
         // Rotate based on scroll
-        headphones.rotation.z = scrollY * 0.001;
+        midiKeyboard.rotation.z = scrollY * 0.001;
         musicalNotes.rotation.y = scrollY * 0.0005;
     }
 
@@ -171,19 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const elapsedTime = clock.getElapsedTime();
 
-        // Constant rotation for headphones
-        headphones.rotation.x += 0.001;
-        headphones.rotation.y += 0.002;
+        // Constant rotation for MIDI keyboard
+        midiKeyboard.rotation.x = Math.sin(elapsedTime * 0.3) * 0.1;
+        midiKeyboard.rotation.y += 0.002;
 
         // Mouse interaction easing
         targetX = mouseX * 0.001;
         targetY = mouseY * 0.001;
 
-        headphones.rotation.y += 0.05 * (targetX - headphones.rotation.y);
-        headphones.rotation.x += 0.05 * (targetY - headphones.rotation.x);
+        midiKeyboard.rotation.y += 0.05 * (targetX - midiKeyboard.rotation.y);
+        midiKeyboard.rotation.x += 0.05 * (targetY - midiKeyboard.rotation.x);
 
         // Gentle floating movement
-        headphones.position.y = Math.sin(elapsedTime * 0.5) * 1;
+        midiKeyboard.position.y = Math.sin(elapsedTime * 0.5) * 1;
 
         // Animate musical notes - floating upward and rotating
         musicalNotes.rotation.y += 0.0005;
